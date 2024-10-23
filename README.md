@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# React App for Spring Boot JWT Authentication
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React frontend integrated with a Spring Boot backend that handles user authentication using JWT (JSON Web Token). This project allows users to log in to the system, receive a JWT token, and use it to access protected resources.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [React App for Spring Boot JWT Authentication](#react-app-for-spring-boot-jwt-authentication)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Project Structure](#project-structure)
+    - [API Endpoints](#api-endpoints)
+    - [JWT Workflow](#jwt-workflow)
+    - [Running the Application](#running-the-application)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **JWT Authentication**: Login and receive JWT tokens.
+- **Token Storage**: Store the JWT in local storage.
+- **Protected Routes**: Access secure resources using JWT tokens.
+- **User Login Form**: Authenticate users via a login form.
+- **Logout Functionality**: Clear JWT from local storage and log the user out.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+Before you begin, ensure you have the following installed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Node.js**: [Download Node.js](https://nodejs.org/)
+- **npm**: Node package manager, comes with Node.js.
+- **Spring Boot Application with JWT Authentication**: Ensure the backend API is running and configured to accept JWT-based login requests.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/react-jwt-auth.git
+    cd react-jwt-auth
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Set up environment variables**:
+    Create a `.env` file in the root directory and add the following:
+    ```bash
+    REACT_APP_API_URL=http://localhost:8005  # Spring Boot API base URL
+    ```
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+``` bash
+src/
+|-- components/
+|   |-- Login.jsx        # Component for user login
+|   |-- Dashboard.jsx        # Protected component accessible after login
+|   |-- ProtectedRoute.jsx   # Higher-order component for protected routes
+|-- App.js                  # Main application component
+|-- index.js                # Entry point for the React app
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### API Endpoints
+- POST /auth/login: Login with email and password to receive JWT token.
+- GET /api/protected: Access protected resources with JWT token.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### JWT Workflow
+1. User submits login credentials through the login form.
+2. The frontend sends a POST request to the /auth/login endpoint in the Spring Boot backend.
+3. Upon successful authentication, the backend returns a JWT token.
+4. The token is stored in local storage.
+5. When accessing protected resources, the token is attached to the Authorization header of the HTTP request.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Running the Application
+1. Start the React app:
+    ``` bash
+    npm start
+    ```
+    
