@@ -13,14 +13,8 @@ A React frontend integrated with a Spring Boot backend that handles user authent
     - [API Endpoints](#api-endpoints)
     - [JWT Workflow](#jwt-workflow)
     - [Running the Application](#running-the-application)
-    - [Usage](#usage)
-      - [Login:](#login)
-      - [Protected Routes:](#protected-routes)
+    - [Usage:](#usage)
     - [Technologies Used](#technologies-used)
-      - [React:](#react)
-      - [Axios:](#axios)
-      - [JWT:](#jwt)
-      - [React Router:](#react-router)
     - [License](#license)
     - [Explanation:](#explanation)
 
@@ -90,22 +84,16 @@ src/
     ```
 2. Ensure that your Spring Boot backend is running at http://localhost:8005 (or the configured API URL).
 
-### Usage
-#### Login:
- Use the login form to authenticate with your credentials.
-#### Protected Routes: 
-Once logged in, the app will give you access to certain routes that are protected by JWT. These routes will be inaccessible if you are not authenticated.    
+### Usage:
+- **Login**:Use the login form to authenticate with your credentials.
+- **Protected Routes:** Once logged in, the app will give you access to certain routes that are protected by JWT. These routes will be inaccessible if you are not authenticated.    
 
 ### Technologies Used
 
-#### React:   
-Frontend JavaScript framework for building user interfaces.
-#### Axios: 
-HTTP client to send API requests.
-#### JWT: 
-Token-based authentication mechanism for secure communication between frontend and backend.
-#### React Router: 
-For handling routing and protected routes.
+- **React**: Frontend JavaScript framework for building user interfaces.
+- **Axios**: HTTP client to send API requests.
+- **JWT**: Token-based authentication mechanism for secure communication between frontend and backend.
+- **React Router**: For handling routing and protected routes.
 
 ### License
 This project is licensed under the MIT License.
